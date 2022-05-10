@@ -34,8 +34,10 @@ class PageTransformerController(private val viewPager: ViewPager2, private val s
     fun setUp() {
         val transformers = listOf(
             "None" to ViewPager2.PageTransformer { _, _ -> /* no op */ },
-            "Margin 50px" to MarginPageTransformer(50),
-            "Margin 32dp" to MarginPageTransformer(32.dpToPx)
+//            "Margin 50px" to MarginPageTransformer(50),
+//            "Margin 32dp" to MarginPageTransformer(132.dpToPx)
+            "Margin 50px" to TestMarginPageTransformer(50),
+            "Margin 32dp" to TestMarginPageTransformer(132.dpToPx)
         )
 
         val cancelTranslationsTransformer = ViewPager2.PageTransformer { page, _ ->

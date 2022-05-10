@@ -17,14 +17,16 @@
 package androidx.viewpager2.integration.testapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
-
 import androidx.viewpager2.integration.testapp.cards.Card
 import androidx.viewpager2.integration.testapp.cards.CardView
+
 
 /**
  * Shows how to use a [androidx.viewpager2.widget.ViewPager2] with Fragments, via a
@@ -47,6 +49,14 @@ class CardFragmentActivity : BaseCardActivity() {
                 return Card.DECK.size
             }
         }
+
+        // 设置Viewpager2   禁用预抓取， 和 禁用缓存，，， viewpager2 也可做到 fragment的懒加载和  fragment的缓存
+        if (viewPager.getChildAt(0) is RecyclerView) {
+            val recyclerView : RecyclerView = viewPager.getChildAt(0) as RecyclerView
+            recyclerView.layoutManager!!.isItemPrefetchEnabled = false
+            recyclerView.setItemViewCacheSize(0)
+
+        }
     }
 
     class CardFragment : Fragment() {
@@ -55,9 +65,17 @@ class CardFragmentActivity : BaseCardActivity() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
         ): View? {
+
+            Log.e("fyg","this.hashCode()  :  "+this.hashCode())
             val cardView = CardView(layoutInflater, container)
             cardView.bind(Card.fromBundle(arguments!!))
             return cardView.view
+        }
+
+
+        override fun onDestroy() {
+            super.onDestroy()
+            Log.e("fyg","this.hashCode()  :  "+this.hashCode() + "   onDestroy ")
         }
 
         companion object {

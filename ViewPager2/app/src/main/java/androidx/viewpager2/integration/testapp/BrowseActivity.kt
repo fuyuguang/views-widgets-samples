@@ -22,6 +22,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ListView
 import android.widget.SimpleAdapter
+import androidx.viewpager2.integration.testapp.test.ParallelNestedScrollingActivity2
 
 /**
  * This activity lists all the activities in this application.
@@ -43,21 +44,22 @@ class BrowseActivity : ListActivity() {
                 "intent" to activityToIntent(CardViewActivity::class.java.name)))
         myData.add(mapOf("title" to "ViewPager2 with Fragments",
                 "intent" to activityToIntent(CardFragmentActivity::class.java.name)))
-        myData.add(mapOf("title" to "ViewPager2 with a Mutable Collection (Views)",
+        myData.add(mapOf("title" to " 带有可变集合的 ViewPager2（视图）  ViewPager2 with a Mutable Collection (Views)",
                 "intent" to activityToIntent(MutableCollectionViewActivity::class.java.name)))
-        myData.add(mapOf("title" to "ViewPager2 with a Mutable Collection (Fragments)",
+        myData.add(mapOf("title" to "带有可变集合的 ViewPager2（片段）  ViewPager2 with a Mutable Collection (Fragments)",
                 "intent" to activityToIntent(MutableCollectionFragmentActivity::class.java.name)))
-        myData.add(mapOf("title" to "ViewPager2 with a TabLayout (Views)",
+        myData.add(mapOf("title" to "带有 TabLayout 的 ViewPager2（视图）  ViewPager2 with a TabLayout (Views)",
                 "intent" to activityToIntent(CardViewTabLayoutActivity::class.java.name)))
-        myData.add(mapOf("title" to "ViewPager2 with Fake Dragging",
+        myData.add(mapOf("title" to "带有假拖动的 ViewPager2  ViewPager2 with Fake Dragging",
                 "intent" to activityToIntent(FakeDragActivity::class.java.name)))
-        myData.add(mapOf("title" to "ViewPager2 with PageTransformers",
+        myData.add(mapOf("title" to "页面转换器  ViewPager2 with PageTransformers",
                 "intent" to activityToIntent(PageTransformerActivity::class.java.name)))
-        myData.add(mapOf("title" to "ViewPager2 with a Preview of Next/Prev Page",
+        myData.add(mapOf("title" to "带有下一页/上一页预览的 ViewPager2  ViewPager2 with a Preview of Next/Prev Page",
                 "intent" to activityToIntent(PreviewPagesActivity::class.java.name)))
-        myData.add(mapOf("title" to "ViewPager2 with Nested RecyclerViews",
+        myData.add(mapOf("title" to "带有嵌套 RecyclerViews 的 ViewPager2  ViewPager2 with Nested RecyclerViews",
                 "intent" to activityToIntent(ParallelNestedScrollingActivity::class.java.name)))
-
+        myData.add(mapOf("title" to "多类型 带有嵌套 RecyclerViews 的 ViewPager2  ",
+            "intent" to activityToIntent(ParallelNestedScrollingActivity2::class.java.name)))
         return myData
     }
 

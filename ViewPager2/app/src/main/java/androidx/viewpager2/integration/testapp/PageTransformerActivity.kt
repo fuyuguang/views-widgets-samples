@@ -17,7 +17,11 @@
 package androidx.viewpager2.integration.testapp
 
 import android.os.Bundle
+import android.os.Handler
+import android.view.LayoutInflater
+import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.integration.testapp.cards.CardViewAdapter
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -36,5 +40,30 @@ class PageTransformerActivity : FragmentActivity() {
 
         OrientationController(viewPager, findViewById(R.id.orientation_spinner)).setUp()
         PageTransformerController(viewPager, findViewById(R.id.transformer_spinner)).setUp()
+
+
+        if (viewPager.getChildAt(0) is RecyclerView) {
+            val recyclerView : RecyclerView = viewPager.getChildAt(0) as RecyclerView
+//            recyclerView.layoutManager!!.isItemPrefetchEnabled = false
+//            recyclerView.setItemViewCacheSize(0)
+
+
+//            Handler().postDelayed({
+//                var tv =  TextView(this);
+//                tv.width = 400;
+//                tv.height = 500;
+//                tv.text = "sdfdsfdsfdsfsdfsdfsdfs"
+//                tv.textSize = 40F;
+////                recyclerView.addView(tv)
+//                recyclerView.adapter
+//                recyclerView.layoutManager!!.addView(tv)
+//            },500)
+
+
+        }
+
+
+
+
     }
 }

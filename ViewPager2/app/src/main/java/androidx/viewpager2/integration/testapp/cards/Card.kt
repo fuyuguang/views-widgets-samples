@@ -48,7 +48,7 @@ class Card private constructor(val suit: String, val value: String) {
 
         val SUITS = setOf("♣" /* clubs*/, "♦" /* diamonds*/, "♥" /* hearts*/, "♠" /*spades*/)
         val VALUES = setOf("2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A")
-        val DECK = SUITS.flatMap { suit ->
+        val DECK : List<Card> = SUITS.flatMap { suit ->
             VALUES.map { value -> Card(suit, value) }
         }
 

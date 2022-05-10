@@ -55,7 +55,28 @@ class ParallelNestedScrollingActivity : Activity() {
             return ViewHolder(root).apply {
                 rv1.setUpRecyclerView(RecyclerView.HORIZONTAL)
                 rv2.setUpRecyclerView(RecyclerView.VERTICAL)
+                if (viewType == 0){
+
+                    (this.itemView as ViewGroup).getChildAt(0).visibility = View.VISIBLE;
+                    (this.itemView as ViewGroup).getChildAt(1).visibility = View.VISIBLE;
+                    (this.itemView as ViewGroup).getChildAt(2).visibility = View.VISIBLE;
+//                    title.visibility = View.VISIBLE;
+//                    rv1.visibility = View.VISIBLE;
+                }else{
+//                    title.visibility = View.GONE;
+//                    rv1.visibility = View.GONE;
+
+                    (this.itemView as ViewGroup).getChildAt(0).visibility = View.GONE;
+                    (this.itemView as ViewGroup).getChildAt(1).visibility = View.GONE;
+                    (this.itemView as ViewGroup).getChildAt(2).visibility = View.GONE;
+
+                }
             }
+        }
+
+        override fun getItemViewType(position: Int): Int {
+//            return super.getItemViewType(position)
+            return position%2
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
